@@ -1,0 +1,177 @@
+{
+  "schema_version": "openml-creditcard-eval-v1",
+  "evaluated_at": "2026-10-17T19:43:08.591Z",
+  "environment": {
+    "node_version": "v22.13.0",
+    "platform": "linux",
+    "architecture": "x64",
+    "seed": 731942,
+    "package_lock_sha256": "4e8aeaeb63e8bb97dc8e6732060ef5b25550b11748ffecb8701e9fe617c012b3"
+  },
+  "dataset": {
+    "name": "CreditCardFraudDetection",
+    "openml_id": 42397,
+    "rows": 284807,
+    "fraud_rows": 492,
+    "columns": 31,
+    "label_column": "Class",
+    "time_column": "Time",
+    "md5": "f9544642717dc57d30c6505a422da240",
+    "sha256": "9cda3beed911b711edb234f3ff9fb26d782796cce5add725e8f43f94a067eee7",
+    "source_url": "https://www.openml.org/d/42397",
+    "download_url": "https://www.openml.org/data/download/21829702/dataset",
+    "origin_url": "https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
+    "license_note": "Kaggle data card lists Open Database, Contents Database Contents License 1.0; review the source license before reuse or redistribution.",
+    "scope_note": "Anonymized European card transactions from September 2013 over two days; no customer/device/merchant identifiers; not a current or representative portfolio.",
+    "label_encoding": "OpenML ARFF True/False normalized to binary 1/0"
+  },
+  "protocol": {
+    "split": "chronological 60% train / 20% validation / 20% test",
+    "ordering": "Ascending Time, ties stable by source row order.",
+    "selection": "validation PR-AUC (tie-break: lower validation cost, then algorithm name). Selection is frozen BEFORE the test set is scored.",
+    "threshold_selection": "minimum total cost on validation data using the configured cost matrix",
+    "test_usage": "The test set is scored once for the selected model. Other models have validation metrics only unless exploratoryTestComparison is requested; those are labelled exploratory and must not be used to re-select.",
+    "algorithm": "logistic_regression (only candidate requested)",
+    "exploratory_experiments": "Skipped; no effect on selected-candidate evaluation.",
+    "cost_matrix": {
+      "false_negative_cost": 100,
+      "false_positive_cost": 10,
+      "review_cost": 1,
+      "false_negative_use_amount": false
+    },
+    "cost_units_note": "Illustrative relative cost units; not calibrated to a bank or a particular currency.",
+    "train_period_end": 120396,
+    "validation_period_end": 145247,
+    "test_period_start": 145248,
+    "training_rows": 170884,
+    "validation_rows": 56961,
+    "test_rows": 56962
+  },
+  "selected_model": {
+    "algorithm": "logistic_regression",
+    "threshold": 0.08,
+    "hybrid_threshold": 0.06,
+    "positive_count": 492
+  },
+  "test": {
+    "hybrid": {
+      "threshold": 0.06,
+      "rows": 56962,
+      "prevalence": 0.001,
+      "pr_auc": 0.796,
+      "roc_auc": 0.979,
+      "precision": 0.851,
+      "fraud_recall": 0.76,
+      "f1": 0.803,
+      "false_positives": 10,
+      "false_negatives": 18,
+      "confusion_matrix": {
+        "true_positive": 57,
+        "true_negative": 56877,
+        "false_positive": 10,
+        "false_negative": 18
+      },
+      "cost": {
+        "total_cost": 1967,
+        "cost_per_1000_transactions": 34.53,
+        "missed_fraud_cost": 1800,
+        "false_positive_cost": 100,
+        "review_action_cost": 67,
+        "approve_all_cost": 7500,
+        "savings_vs_approve_all": 5533,
+        "amount_weighting_applied": false,
+        "flagged_transactions": 67
+      }
+    },
+    "classifier": {
+      "threshold": 0.08,
+      "rows": 56962,
+      "prevalence": 0.001,
+      "pr_auc": 0.796,
+      "roc_auc": 0.979,
+      "precision": 0.851,
+      "fraud_recall": 0.76,
+      "f1": 0.803,
+      "false_positives": 10,
+      "false_negatives": 18,
+      "confusion_matrix": {
+        "true_positive": 57,
+        "true_negative": 56877,
+        "false_positive": 10,
+        "false_negative": 18
+      },
+      "cost": {
+        "total_cost": 1967,
+        "cost_per_1000_transactions": 34.53,
+        "missed_fraud_cost": 1800,
+        "false_positive_cost": 100,
+        "review_action_cost": 67,
+        "approve_all_cost": 7500,
+        "savings_vs_approve_all": 5533,
+        "amount_weighting_applied": false,
+        "flagged_transactions": 67
+      }
+    }
+  },
+  "validation": {
+    "hybrid": {
+      "threshold": 0.06,
+      "rows": 56961,
+      "prevalence": 0.001,
+      "pr_auc": 0.76,
+      "roc_auc": 0.974,
+      "precision": 0.84,
+      "fraud_recall": 0.737,
+      "f1": 0.785,
+      "false_positives": 8,
+      "false_negatives": 15,
+      "confusion_matrix": {
+        "true_positive": 42,
+        "true_negative": 56896,
+        "false_positive": 8,
+        "false_negative": 15
+      },
+      "cost": {
+        "total_cost": 1630,
+        "cost_per_1000_transactions": 28.62,
+        "missed_fraud_cost": 1500,
+        "false_positive_cost": 80,
+        "review_action_cost": 50,
+        "approve_all_cost": 5700,
+        "savings_vs_approve_all": 4070,
+        "amount_weighting_applied": false,
+        "flagged_transactions": 50
+      }
+    },
+    "classifier": {
+      "threshold": 0.08,
+      "rows": 56961,
+      "prevalence": 0.001,
+      "pr_auc": 0.76,
+      "roc_auc": 0.974,
+      "precision": 0.84,
+      "fraud_recall": 0.737,
+      "f1": 0.785,
+      "false_positives": 8,
+      "false_negatives": 15,
+      "confusion_matrix": {
+        "true_positive": 42,
+        "true_negative": 56896,
+        "false_positive": 8,
+        "false_negative": 15
+      },
+      "cost": {
+        "total_cost": 1630,
+        "cost_per_1000_transactions": 28.62,
+        "missed_fraud_cost": 1500,
+        "false_positive_cost": 80,
+        "review_action_cost": 50,
+        "approve_all_cost": 5700,
+        "savings_vs_approve_all": 4070,
+        "amount_weighting_applied": false,
+        "flagged_transactions": 50
+      }
+    }
+  },
+  "interpretation": "Public historical benchmark only. No claim of current production accuracy, transfer to other portfolios, validation of entity-level relationship features, IBM Z/LinuxONE deployment, or security certification."
+}
